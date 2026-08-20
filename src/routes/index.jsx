@@ -14,11 +14,17 @@ export const myRouter = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/profile', // best practice penulisan path route (kebab-case)
-    element: <ProfilePengguna />,
+    path: '/profile', // best practice penulisan path route (kebab-case)//,
+    children: [
+      {
+        path: '/profile/:id',
+        element: <ProfilDetail />,
+      },
+      {
+        path: '/profile',
+        element: <ProfilePengguna />,
+      },
+    ],
   },
-  {
-    path: '/profile/:id',
-    element: <ProfilDetail />,
-  },
+
 ]);
